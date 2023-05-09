@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/style.css" />
+    <title>Greeting Exercise</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Greeting</h1>
+
+      <input type="text" placeholder="enter your name" class="name" />
+      <label class="">
+        <input
+          type="radio"
+          name="languageType"
+          class="languageType"
+          value="isiXhosa"
+        />IsiXhosa
+        
+      </label>
+      <label class="">
+        <input
+          type="radio"
+          name="languageType"
+          class="languageType"
+          value="english"
+        />
+        English
+      </label>
+      <label class="">
+        <input
+          type="radio"
+          name="languageType"
+          class="languageType"
+          value="isiZulu"
+        />
+        isiZulu
+      </label>
+      <button class="submit">Click me!</button>
+
+      <span id="display"></span>
+      <div class="aside">
+        <span id="displayNumber"></span>
+      </div>
+    </div>
+
+
+    <script src="./factory-function/greet-factory.js" charset="utf-8"></script>
+    <script src="./DOM/greet.js" charset="utf-8"></script>
+  
+  </body>
+</html>
