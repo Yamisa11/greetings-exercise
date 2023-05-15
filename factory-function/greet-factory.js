@@ -4,7 +4,7 @@ function GreetingExercise() {
   var numberOfNames = 0;
 
   function setInputName(inputName) {
-    theName = inputName;
+    theName = inputName.toLowerCase();
   }
 
   function getInputName() {
@@ -12,23 +12,35 @@ function GreetingExercise() {
   }
 
   function allNamesFunction(){
-    allNames.push(theName)
+    if (allNames.includes(theName) === false) {
+      
+    
+    allNames.push(theName.toLowerCase())}
     return allNames;
   }
 
   function isiXhosaGreeting() {
-    return "Molo, " + theName;
+    return "Molo, " + theName.charAt(0).toUpperCase() + theName.slice(1);
   }
 
   function englishGreeting() {
-    return "Hi, " + theName;
+    return "Hi, " + theName.charAt(0).toUpperCase() + theName.slice(1);
   }
 
   function isiZuluGreeting() {
-    return "Sawubona, " + theName;
+    return "Sawubona, " + theName.charAt(0).toUpperCase() + theName.slice(1);
   }
   function countNames(){
     return numberOfNames++;
+  }
+  function errorInput(){
+    return "Please enter name"
+  }
+  function errorRadio(){
+    return "Please choose languange"
+  }
+  function clear(){
+    localStorage.clear()
   }
 
   return {
@@ -38,6 +50,9 @@ function GreetingExercise() {
     isiZuluGreeting,
     englishGreeting,
     countNames,
-    allNamesFunction
+    allNamesFunction,
+    errorInput,
+    errorRadio,
+    clear
   };
 }
