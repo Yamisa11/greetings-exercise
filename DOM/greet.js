@@ -39,10 +39,11 @@ inputTextValue = inputText.value;
   } else {
     displaySpan.innerHTML = greetingFunction.errorInput();
   }
+  inputTextValue= ""
 });
 
 resetbtn.addEventListener('click', function(){
     greetingFunction.clear()
     displaySpan.innerHTML = "";
-    
+    inputTextValue = ""
 })
