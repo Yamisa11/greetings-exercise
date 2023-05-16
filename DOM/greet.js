@@ -47,11 +47,22 @@ inputTextValue = inputText.value;
         displaySpan.innerHTML = greetingFunction.errorRadio()
         displaySpan.classList.add(greetingFunction.classListError())
         displaySpan.classList.remove("success")
+        setTimeout(() => {
+            displaySpan.classList.remove('danger')
+            displaySpan.innerHTML = ''
+
+        }, 4000)
     }
   } else {
     displaySpan.innerHTML = greetingFunction.errorInput();
     displaySpan.classList.add(greetingFunction.classListError())
     displaySpan.classList.remove("success")
+
+    setTimeout(() => {
+        displaySpan.classList.remove('danger')
+        displaySpan.innerHTML = ''
+
+    }, 4000)
   }
  
 });
@@ -62,4 +73,9 @@ resetbtn.addEventListener('click', function(){
     displaySpan.classList.add("success")
     inputText.value= ""
     displayNumber.innerHTML = "0"
+    setTimeout(() => {
+        displaySpan.classList.remove('success')
+        displaySpan.innerHTML = ''
+
+    }, 4000)
 })
