@@ -8,7 +8,7 @@ body{
 
 .container{
     width: 50%;
-    margin: 10% 20%;
+    margin: 6% 17%;
     justify-content: space-around;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 0.2em 2em;
@@ -31,7 +31,7 @@ button{
  border: none;
  height: 2.5em;
  font-size: 15px;
- width: 25%;
+ width: 23%;
  background-color: #778da9;
 }
 .radio{
@@ -57,7 +57,7 @@ button{
     
 }
 .reset{
-    margin-left: 38%;
+    margin-left: 12%;
 }
 .displayText{
     height: 2em;

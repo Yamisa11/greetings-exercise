@@ -48,6 +48,10 @@ function GreetingExercise(list) {
     
   }
 
+  function getNames() {
+    return allNames;
+  }
+
   return {
     setInputName,
     getInputName,
@@ -59,6 +63,7 @@ function GreetingExercise(list) {
     errorRadio,
     clearAll,
     classListError,
-    success
+    success,
+    getNames
   };
 }

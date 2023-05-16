@@ -7,7 +7,8 @@ var arrayOfNames;
 var totalNames = 0;
 var inputTextValue=""
 
-let data = JSON.parse(localStorage.getItem("names"));
+let data = JSON.parse(localStorage.getItem("names")) || [] ;
+
 displayNumber.innerHTML = data.length;
 
 var greetingFunction = GreetingExercise(data);
