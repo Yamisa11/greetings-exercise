@@ -54,7 +54,7 @@ inputTextValue = inputText.value;
   }
  
 });
-
+//reseting/clearing button
 resetbtn.addEventListener('click', function(){
     greetingFunction.clearAll()
     displaySpan.innerHTML = greetingFunction.success();
