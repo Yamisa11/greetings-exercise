@@ -8,7 +8,7 @@ body{
 
 .container{
     width: 50%;
-    margin: 10% 30%;
+    margin: 10% 20%;
     justify-content: space-around;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 0.2em 2em;
@@ -44,7 +44,7 @@ button{
     margin-top: 0.7em;
 }
 #displayNumber{
-    font-size: 50px;
+    font-size: 55px;
     padding: 1em;
 
 }
@@ -62,4 +62,31 @@ button{
 .displayText{
     height: 2em;
     font-style: oblique;
+    font-weight: bold;
+    font-size: x-large;
+    text-align: center;
+}
+.danger {
+    color: crimson;
+    font-weight: bold;
+  }
+.success{
+    color: rgb(12, 199, 12);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+    *{
+        font-size: medium;
+    }
+    button{
+        width: fit-content;
+       
+    }
+    .reset{
+        margin-left: 10%;
+    }
+    #displayNumber{
+        padding: 0.5em;
+    }
 }

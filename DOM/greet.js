@@ -1,4 +1,3 @@
-var greetingFunction = GreetingExercise();
 var smtButton = document.querySelector(".submit");
 var displaySpan = document.querySelector("#display");
 var displayNumber = document.querySelector("#displayNumber");
@@ -8,6 +7,10 @@ var arrayOfNames;
 var totalNames = 0;
 var inputTextValue=""
 
+let data = JSON.parse(localStorage.getItem("names"));
+displayNumber.innerHTML = data.length;
+
+var greetingFunction = GreetingExercise(data);
 smtButton.addEventListener("click", function () {
 inputTextValue = inputText.value;
 
@@ -20,12 +23,18 @@ inputTextValue = inputText.value;
       
         greetingFunction.setInputName(inputTextValue);
         if (checkedRadio.value === "isiXhosa") {
+            displaySpan.classList.remove(greetingFunction.classListError())
+            displaySpan.classList.remove("success")
           displaySpan.innerHTML = greetingFunction.isiXhosaGreeting();
         }
         if (checkedRadio.value === "english") {
+            displaySpan.classList.remove(greetingFunction.classListError())
+            displaySpan.classList.remove("success")
           displaySpan.innerHTML = greetingFunction.englishGreeting();
         }
         if (checkedRadio.value === "isiZulu") {
+            displaySpan.classList.remove(greetingFunction.classListError())
+            displaySpan.classList.remove("success")
           displaySpan.innerHTML = greetingFunction.isiZuluGreeting();
         }
     
@@ -35,15 +44,21 @@ inputTextValue = inputText.value;
       
     } else {
         displaySpan.innerHTML = greetingFunction.errorRadio()
+        displaySpan.classList.add(greetingFunction.classListError())
+        displaySpan.classList.remove("success")
     }
   } else {
     displaySpan.innerHTML = greetingFunction.errorInput();
+    displaySpan.classList.add(greetingFunction.classListError())
+    displaySpan.classList.remove("success")
   }
-  inputTextValue= ""
+ 
 });
 
 resetbtn.addEventListener('click', function(){
-    greetingFunction.clear()
-    displaySpan.innerHTML = "";
-    inputTextValue = ""
+    greetingFunction.clearAll()
+    displaySpan.innerHTML = greetingFunction.success();
+    displaySpan.classList.add("success")
+    inputText.value= ""
+    displayNumber.innerHTML = "0"
 })

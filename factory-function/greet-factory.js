@@ -1,7 +1,6 @@
-function GreetingExercise() {
+function GreetingExercise(list) {
   var theName = "";
-  var allNames = []
-  var numberOfNames = 0;
+  var allNames = list || [] 
 
   function setInputName(inputName) {
     theName = inputName.toLowerCase();
@@ -13,8 +12,6 @@ function GreetingExercise() {
 
   function allNamesFunction(){
     if (allNames.includes(theName) === false) {
-      
-    
     allNames.push(theName.toLowerCase())}
     return allNames;
   }
@@ -30,17 +27,25 @@ function GreetingExercise() {
   function isiZuluGreeting() {
     return "Sawubona, " + theName.charAt(0).toUpperCase() + theName.slice(1);
   }
-  function countNames(){
-    return numberOfNames++;
-  }
   function errorInput(){
-    return "Please enter name"
+    return "Please enter name!"
   }
   function errorRadio(){
-    return "Please choose languange"
+    return "Please choose language!"
   }
-  function clear(){
-    localStorage.clear()
+  function classListError(){
+    if (errorInput || errorRadio) {
+      return "danger"
+    }
+  }
+  function success(){
+    return "successfully cleared!"
+  }
+ 
+  function clearAll(){
+    localStorage.clear();
+    allNames = []
+    
   }
 
   return {
@@ -49,10 +54,11 @@ function GreetingExercise() {
     isiXhosaGreeting,
     isiZuluGreeting,
     englishGreeting,
-    countNames,
     allNamesFunction,
     errorInput,
     errorRadio,
-    clear
+    clearAll,
+    classListError,
+    success
   };
 }
