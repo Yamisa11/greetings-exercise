@@ -18,8 +18,8 @@ body{
 .aside{
     float:right;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    width: 38%;
-    height: 9em;
+    width: 45%;
+    height: 8.8em;
     background-color: #edede9; 
 }
 h1{
@@ -31,7 +31,7 @@ button{
  border: none;
  height: 2.5em;
  font-size: 15px;
- width: 23%;
+ width: 45%;
  background-color: #778da9;
 }
 .radio{
@@ -51,13 +51,13 @@ button{
 .name{
     border-radius: 5px;
     height: 2em;
-    width: 50%;
+    width: 45%;
     border: none;
     background-color: #edede9; 
     
 }
 .reset{
-    margin-left: 12%;
+    float: right;
 }
 .displayText{
     height: 2em;
@@ -79,13 +79,13 @@ button{
     *{
         font-size: medium;
     }
-    button{
+    /* button{
         width: fit-content;
        
-    }
-    .reset{
+    } */
+    /* .reset{
         margin-left: 10%;
-    }
+    } */
     #displayNumber{
         padding: 0.5em;
     }
