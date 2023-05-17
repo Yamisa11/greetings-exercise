@@ -1,6 +1,7 @@
 function GreetingExercise(list) {
   var theName = "";
-  var allNames = list || [] 
+  let regex = /^[a-zA-Z]+$/;
+  var allNames = list || [];
 
   function setInputName(inputName) {
     theName = inputName.toLowerCase();
@@ -10,10 +11,13 @@ function GreetingExercise(list) {
     return theName;
   }
 
-  function allNamesFunction(){
-    if (allNames.includes(theName) === false) {
-    allNames.push(theName.toLowerCase())}
-    return allNames;
+  function allNamesFunction(theName) {
+    if (regex.test(theName) === true) {
+      if (allNames.includes(theName.toLowerCase()) === false) {
+        allNames.push(theName.toLowerCase());
+      }
+      return allNames;
+    }
   }
 
   function isiXhosaGreeting() {
@@ -27,25 +31,27 @@ function GreetingExercise(list) {
   function isiZuluGreeting() {
     return "Sawubona, " + theName.charAt(0).toUpperCase() + theName.slice(1);
   }
-  function errorInput(){
-    return "Please enter name!"
+  function errorInput() {
+    return "Please enter name!";
   }
-  function errorRadio(){
-    return "Please choose language!"
+  function invalidInputError() {
+    return "Please enter valid name!";
   }
-  function classListError(){
+  function errorRadio() {
+    return "Please choose language!";
+  }
+  function classListError() {
     if (errorInput || errorRadio) {
-      return "danger"
+      return "danger";
     }
   }
-  function success(){
-    return "successfully cleared!"
+  function success() {
+    return "successfully cleared!";
   }
- 
-  function clearAll(){
+
+  function clearAll() {
     localStorage.clear();
-    allNames = []
-    
+    allNames = [];
   }
 
   function getNames() {
@@ -64,6 +70,8 @@ function GreetingExercise(list) {
     clearAll,
     classListError,
     success,
-    getNames
+    getNames,
+    getInputName,
+    invalidInputError,
   };
 }

@@ -1,7 +1,4 @@
-/* *{
 
-    font-family: 'Poppins', sans-serif;
-} */
 body{
     background-color: #edede9;
 }
@@ -79,13 +76,6 @@ button{
     *{
         font-size: medium;
     }
-    /* button{
-        width: fit-content;
-       
-    } */
-    /* .reset{
-        margin-left: 10%;
-    } */
     #displayNumber{
         padding: 0.5em;
     }

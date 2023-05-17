@@ -50,12 +50,38 @@ describe('Greet exercise tests', function(){
 
         assert.equal("Please choose language!", greetingsExercise.errorRadio())
     })
-    it('shoud return empty input ', function(){
+    it('shoud return classList "danger" when the input text is empty', function(){
+        
+        let greetingsExercise = GreetingExercise()
+
+        greetingsExercise.setInputName("");
+        greetingsExercise.getInputName()
+        greetingsExercise.errorInput()
+    
+        assert.equal("danger", greetingsExercise.classListError())
+    })
+    it('shoud return classList "danger" when the language is not selected', function(){
+        
+        let greetingsExercise = GreetingExercise()
+
+        greetingsExercise.setInputName("");
+        greetingsExercise.getInputName()
+        greetingsExercise.errorRadio()
+    
+        assert.equal("danger", greetingsExercise.classListError())
+    })
+    it('shoud return array of 2 names ["yamisa","yam"] when 2 names are set (Yamisa and Yam)', function(){
         
         let greetingsExercise = GreetingExercise()
 
         greetingsExercise.setInputName("Yamisa");
+        greetingsExercise.getInputName()
+        greetingsExercise.allNamesFunction(greetingsExercise.getInputName())
 
-        assert.equal("Please choose language!", greetingsExercise.errorRadio())
+        greetingsExercise.setInputName("Yam");
+        greetingsExercise.getInputName()
+        greetingsExercise.allNamesFunction(greetingsExercise.getInputName())
+    
+        assert.deepEqual(["yamisa","yam"], greetingsExercise.getNames())
     })
 })
