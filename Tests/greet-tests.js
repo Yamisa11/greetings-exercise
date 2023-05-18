@@ -40,7 +40,7 @@ describe('Greet exercise tests', function(){
 
         greetingsExercise.setInputName("");
 
-        assert.equal("Please enter name!", greetingsExercise.errorInput())
+        assert.equal("Please enter a name!", greetingsExercise.errors("",greetingsExercise.isiXhosaGreeting()))
     })
     it('shoud return Please choose language if no language is selected', function(){
         
@@ -48,15 +48,13 @@ describe('Greet exercise tests', function(){
 
         greetingsExercise.setInputName("Yamisa");
 
-        assert.equal("Please choose language!", greetingsExercise.errorRadio())
+        assert.equal("Please choose language!", greetingsExercise.errors("Yamisa",null))
     })
     it('shoud return classList "danger" when the input text is empty', function(){
         
         let greetingsExercise = GreetingExercise()
 
-        greetingsExercise.setInputName("");
-        greetingsExercise.getInputName()
-        greetingsExercise.errorInput()
+        greetingsExercise.errors("","isiXhosa")
     
         assert.equal("danger", greetingsExercise.classListError())
     })
@@ -64,9 +62,8 @@ describe('Greet exercise tests', function(){
         
         let greetingsExercise = GreetingExercise()
 
-        greetingsExercise.setInputName("");
-        greetingsExercise.getInputName()
-        greetingsExercise.errorRadio()
+        greetingsExercise.errors("Yamisa",null);
+
     
         assert.equal("danger", greetingsExercise.classListError())
     })
@@ -83,5 +80,15 @@ describe('Greet exercise tests', function(){
         greetingsExercise.allNamesFunction(greetingsExercise.getInputName())
     
         assert.deepEqual(["yamisa","yam"], greetingsExercise.getNames())
+    })
+    it('shoud return "Please enter name and language when input is empty and radio unchecked"', function(){
+        
+        let greetingsExercise = GreetingExercise()
+
+        greetingsExercise.setInputName("");
+        greetingsExercise.getInputName()
+        
+    
+        assert.deepEqual('Please enter name and language!', greetingsExercise.errors("",null))
     })
 })

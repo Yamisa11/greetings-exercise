@@ -20,10 +20,10 @@ smtButton.addEventListener("click", function () {
     'input[class="languageType"]:checked'
   );
 
-  if (inputTextValue != "") { //input text cannot be empty onclick
-    if (greetingFunction.allNamesFunction(inputTextValue) != undefined) { 
+  if (inputTextValue && checkedRadio) {
+    if (greetingFunction.allNamesFunction(inputTextValue) != undefined) {
       if (checkedRadio) {
-        // setting name 
+        // setting name
         greetingFunction.setInputName(inputTextValue);
         if (checkedRadio.value === "isiXhosa") {
           displaySpan.classList.remove(greetingFunction.classListError());
@@ -43,19 +43,10 @@ smtButton.addEventListener("click", function () {
         var arrayOfNames = greetingFunction.allNamesFunction(inputTextValue);
         localStorage["names"] = JSON.stringify(arrayOfNames);
         displayNumber.innerHTML = arrayOfNames.length;
-      } else {
-        // error handling : radio button not checked
-        displaySpan.innerHTML = greetingFunction.errorRadio();
-        displaySpan.classList.add(greetingFunction.classListError());
-        displaySpan.classList.remove("success");
-        setTimeout(() => {
-          displaySpan.classList.remove("danger");
-          displaySpan.innerHTML = "";
-        }, 4000);
       }
     } else {
       // error handling: when special characters or numbers used as input
-      displaySpan.innerHTML = greetingFunction.invalidInputError();
+      displaySpan.innerHTML = greetingFunction.invalidInput();
       displaySpan.classList.add(greetingFunction.classListError());
       displaySpan.classList.remove("success");
 
@@ -64,18 +55,24 @@ smtButton.addEventListener("click", function () {
         displaySpan.innerHTML = "";
       }, 4000);
     }
+
+    //   //input text cannot be empty onclick
   } else {
     // error handling: when input text is empty
-    displaySpan.innerHTML = greetingFunction.errorInput();
+    displaySpan.innerHTML = greetingFunction.errors(
+      inputTextValue,
+      checkedRadio
+    );
     displaySpan.classList.add(greetingFunction.classListError());
     displaySpan.classList.remove("success");
-
     setTimeout(() => {
       displaySpan.classList.remove("danger");
       displaySpan.innerHTML = "";
     }, 4000);
   }
+  inputText.value = "";
 });
+
 //reseting/clearing button
 resetbtn.addEventListener("click", function () {
   greetingFunction.clearAll();

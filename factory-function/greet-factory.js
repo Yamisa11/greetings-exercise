@@ -31,17 +31,24 @@ function GreetingExercise(list) {
   function isiZuluGreeting() {
     return "Sawubona, " + theName.charAt(0).toUpperCase() + theName.slice(1);
   }
-  function errorInput() {
-    return "Please enter name!";
+
+  function errors(names,language){
+    if (names == "" && language == null) {
+      return "Please enter name and language!"
+    }
+    if (names == ""){
+      return "Please enter a name!"
+    }
+    if (language == null){
+      return "Please choose language!"
+    }
+  
   }
-  function invalidInputError() {
-    return "Please enter valid name!";
-  }
-  function errorRadio() {
-    return "Please choose language!";
+  function invalidInput(){
+    return "Please enter valid name!"
   }
   function classListError() {
-    if (errorInput || errorRadio) {
+    if (errors) {
       return "danger";
     }
   }
@@ -58,6 +65,7 @@ function GreetingExercise(list) {
     return allNames;
   }
 
+
   return {
     setInputName,
     getInputName,
@@ -65,13 +73,12 @@ function GreetingExercise(list) {
     isiZuluGreeting,
     englishGreeting,
     allNamesFunction,
-    errorInput,
-    errorRadio,
     clearAll,
     classListError,
     success,
     getNames,
     getInputName,
-    invalidInputError,
+    errors,
+    invalidInput
   };
 }
