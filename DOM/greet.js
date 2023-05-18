@@ -71,10 +71,15 @@ smtButton.addEventListener("click", function () {
     }, 4000);
   }
   inputText.value = "";
+   checkedRadio.checked = false;
 });
 
 //reseting/clearing button
 resetbtn.addEventListener("click", function () {
+  var checkedRadio = document.querySelector(
+    'input[class="languageType"]:checked'
+  );
+  checkedRadio.checked = false;
   greetingFunction.clearAll();
   displaySpan.innerHTML = greetingFunction.success();
   displaySpan.classList.add("success");
